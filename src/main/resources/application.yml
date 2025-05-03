@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: aws-demo
+
+logger:
+  level:
+    root: debug
