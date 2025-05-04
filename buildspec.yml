@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+  pre_build:
+    commands:
+      - echo "Starting pre-build phase..."
+      - chmod +x ./gradlew
+  build:
+    commands:
+      - echo "Starting build phase..."
+      - ./gradlew build -x test
+  post_build:
+    commands:
+      - echo "Starting post-build phase..."
+      - mkdir -p build/libs
+      - cp build/libs/*.jar build/libs/app.jar
+artifacts:
+  files:
+    - build/libs/app.jar
+  discard-paths: yes

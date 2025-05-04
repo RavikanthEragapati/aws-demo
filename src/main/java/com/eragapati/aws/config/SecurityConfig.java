@@ -13,7 +13,7 @@ public class SecurityConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**")
-                        .allowedOrigins("*")
+                        .allowedOriginPatterns("*.elasticbeanstalk.com*") // when testing locally use *
                         .allowedMethods("GET");
             }
         };
